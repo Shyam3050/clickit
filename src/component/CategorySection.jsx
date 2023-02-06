@@ -4,7 +4,10 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 import { RowContainer } from "./";
 
-const CategorySection = ({ itemList, title }) => {
+const CategorySection = ({ itemList, title, category }) => {
+
+  const filteredItems = itemList.filter((item) => item.category === category);
+
   function scrollBtn(direction) {
     const slider = document.getElementById("row_container");
     if (direction === "right") {
@@ -39,7 +42,7 @@ const CategorySection = ({ itemList, title }) => {
           </motion.div>
         </div>
       </div>
-      <RowContainer flag={true} data={itemList} />
+      <RowContainer flag={true} data={filteredItems} />
     </section>
   );
 };

@@ -3,28 +3,42 @@ import {
   MenuContainer,
   CartContainer,
   CategorySection,
+  Loader
 } from "./";
 import { useSelector } from "react-redux";
 
 const MainContainer = () => {
   const { foodItems, showCart } = useSelector((state) => state.user);
-  const fruitsList = foodItems.filter((item) => item.category === "fruits");
-  const icecreamsList = foodItems.filter(
-    (item) => item.category === "icecreams"
-  );
-  const softDrinksList = foodItems.filter((item) => item.category === "drinks");
-  const curryList = foodItems.filter((item) => item.category === "curry");
-
+  
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center">
       <HomeContainer />
-      <CategorySection
-        itemList={fruitsList}
-        title="Our Fresh and healthy fruits"
-      />
-      <CategorySection itemList={curryList} title="today special currys" />
-      <CategorySection itemList={softDrinksList} title="Cold Drinks & Juices" />
-      <CategorySection itemList={icecreamsList} title="Summer special" />
+      {foodItems && foodItems.length > 0 ? (
+        <>
+          <CategorySection
+            itemList={foodItems}
+            title="Our Fresh and healthy fruits"
+            category="fruits"
+          />
+          <CategorySection
+            itemList={foodItems}
+            title="today special currys"
+            category="icecreams"
+          />
+          <CategorySection
+            itemList={foodItems}
+            title="Cold Drinks & Juices"
+            category="drinks"
+          />
+          <CategorySection
+            itemList={foodItems}
+            title="Summer special"
+            category="curry"
+          />
+        </>
+      ) : (
+        <Loader />
+      )}
       <MenuContainer />
       {showCart && <CartContainer />}
     </div>
