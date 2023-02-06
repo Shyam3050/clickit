@@ -26,10 +26,11 @@ const HomeContainer = () => {
           </span>
         </p>
         <p className="text-base text-textColor text-center md:text-left md:w-[80%]">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti quo
-          aperiam excepturi ullam aut magnam omnis cupiditate eum, beatae
-          voluptatum.
+          Daily essential ,Fresh fruits & veggies delivered in minutes, from the
+          house of clickit. <br /> Trusted by millions of shoppers in Bangalore,
+          Delhi-NCR, Hyderabad, Mumbai, Chennai, Pune & other cities
         </p>
+
         <button className="bg-gradient-to-br text-white from-orange-400 to-orange-500 w-full md:w-auto px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100">
           Order Now
         </button>
@@ -40,10 +41,13 @@ const HomeContainer = () => {
           className="h-420 w-full lg:w-auto lg:h-650 ml-auto"
           alt="hero-bg"
         />
-        <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center gap-4 flex-wrap lg:px-32 py-4 overflow-hidden">
+        <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center gap-4 flex-wrap lg:px-10 py-4 overflow-hidden">
           {heroData &&
             heroData.map((item) => (
-              <div key={item.id} className=" lg:w-150   bg-cardOverlay p-4 backdrop-blur-md rounded-3xl flex flex-col items-center justify-center">
+              <div
+                key={item.id}
+                className=" lg:w-150  bg-cardOverlay p-4 backdrop-blur-md rounded-3xl flex flex-col items-center justify-center"
+              >
                 <img
                   src={item.imageSrc}
                   className=" w-20 -mt-5 lg:w-40 lg:-mt-20 "

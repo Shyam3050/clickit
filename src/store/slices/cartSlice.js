@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Action } from "@remix-run/router";
 import { fetchCart } from "../../utils/fetchLocalstoragedata";
 
 const initialState = {

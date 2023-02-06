@@ -13,7 +13,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const userDetails = useSelector((state) => state.user.userDetails);
   const {cartQty} = useSelector(state => state.cart)
-  console.log(cartQty);
   const [isMenu, setMenu] = useState(false);
 
   const loginHandler = async () => {

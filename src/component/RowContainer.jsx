@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { MdShoppingBasket } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import NotFound from "../img/NotFound.svg";
 import { addtoCart } from "../store";
@@ -35,20 +34,19 @@ const RowContainer = ({ flag, data }) => {
               </motion.div>
               <motion.div
                 whileTap={{ scale: 0.75 }}
-                className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center cursor-pointer hover:shadow-md -mt-8"
+                className="w-8 h-8 px-10 text-white  rounded-lg  bg-red-500 flex items-center justify-center cursor-pointer hover:shadow-md hover:bg-red-600 -mt-8"
                 onClick={() => dispatch(addtoCart(item))}
               >
-                <MdShoppingBasket className="text-white" />
+               
+                 add
               </motion.div>
             </div>
 
-            <div className="w-full flex flex-col items-end justify-end -mt-8">
+            <div className="w-full flex flex-col items-end justify-end -mt-8 z-30">
               <p className="text-textColor font-semibold text-base md:text-lg">
                 {item?.title}
               </p>
-              <p className="mt-1 text-sm text-gray-500">
-                {item?.calories} Calories
-              </p>
+              
               <div className="flex items-center gap-8">
                 <p className="text-lg text-headingColor font-semibold">
                   <span className="text-sm text-red-500">$</span> {item?.price}
@@ -59,7 +57,7 @@ const RowContainer = ({ flag, data }) => {
         ))
       ) : (
         <div className="w-full flex flex-col items-center justify-center">
-          <img src={NotFound} className="h-340" />
+          <img src={NotFound} className="h-340" alt="not found" />
           <p className="text-xl text-headingColor font-semibold my-2">
             Items Not Available
           </p>

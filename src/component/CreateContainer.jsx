@@ -20,7 +20,8 @@ import { saveItem } from "../utils/firebaseFunctions";
 
 const CreateContainer = () => {
   const [title, setTitle] = useState("");
-  const [calories, setCalories] = useState("");
+  const [unit, setunit] = useState("");
+  const [unitValue, setUnitvalue] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [imageAsset, setImageAsset] = useState(null);
@@ -81,7 +82,7 @@ const CreateContainer = () => {
   const saveDetails = () => {
     setIsLoading(true);
     try {
-      if (!title || !calories || !imageAsset || !price || !category) {
+      if (!title || !unitValue ||!unit || !imageAsset || !price || !category) {
         setFields(true);
         setMsg("Required fields can't be empty🙇");
         setAlertStatus("danger");
@@ -95,7 +96,8 @@ const CreateContainer = () => {
           title: title,
           imageURL: imageAsset,
           category: category,
-          calories: calories,
+          unit,
+          unitValue,
           qty: 1,
           price: price,
         };
@@ -124,7 +126,8 @@ const CreateContainer = () => {
   const clearData = () => {
     setTitle("");
     setImageAsset(null);
-    setCalories("");
+    setunit("")
+    setUnitvalue("")
     setPrice("");
     setCategory("");
   };
@@ -225,11 +228,20 @@ const CreateContainer = () => {
             <input
               type="text"
               required
-              value={calories}
-              onChange={(e) => setCalories(e.target.value)}
-              placeholder="Calories"
+              value={unitValue}
+              onChange={(e) => setUnitvalue(e.target.value)}
+              placeholder="unitValue"
               className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor"
             />
+            <select value={unit} onChange = {(e) => setunit(e.target.value)}>
+              <option>select</option>
+              <option value="pieces">pieces</option>
+              <option value="ml">ml</option>
+              <option value="pack">pack</option>
+              <option value="gm">gm</option>
+              <option value="kg">kg</option>
+              <option value="plate">plate</option>
+            </select>
           </div>
 
           <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
@@ -245,13 +257,13 @@ const CreateContainer = () => {
           </div>
         </div>
         <div className="flex items-center w-full">
-          <button
+          <motion.button
             type="button"
             className={` ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-emerald-500 px-12 py-2 rounded-lg text-lg text-white font-semibold `}
-            onClick={saveDetails}
+            onClick={saveDetails} whileTap={{scale: 0.75}}
           >
             Save
-          </button>
+          </motion.button>
         </div>
       </div>
     </div>

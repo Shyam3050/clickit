@@ -6,13 +6,12 @@ import { addtoCart, removeFromCart } from "../store";
 
 const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
-  console.log(cartItem);
   return (
     <div className="w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2">
       <img
         src={cartItem.imageURL}
         className="w-20 h-20 max-w-[60px] rounded-full object-contain"
-        alt={cartItem.title}
+        alt=""
       />
 
       {/* name section */}
