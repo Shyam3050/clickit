@@ -3,12 +3,12 @@ import { useDispatch } from "react-redux";
 import NotFound from "../img/NotFound.svg";
 import { addtoCart } from "../store";
 
-const RowContainer = ({ flag, data }) => {
+const RowContainer = ({ flag, data,row_containerId }) => {
   const dispatch = useDispatch();
 
   return (
     <div
-      id="row_container"
+      id={row_containerId}
       className={`w-full flex items-center gap-3 my-12 scroll-smooth ${
         flag
           ? "overflow-x-scroll scrollbar-hide "

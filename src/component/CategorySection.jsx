@@ -5,11 +5,11 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { RowContainer } from "./";
 
 const CategorySection = ({ itemList, title, category }) => {
-
   const filteredItems = itemList.filter((item) => item.category === category);
-
+   const row_containerId = `${category}+"row_container`;
   function scrollBtn(direction) {
-    const slider = document.getElementById("row_container");
+
+    const slider = document.getElementById(row_containerId);
     if (direction === "right") {
       slider.scrollLeft += 200;
     }
@@ -19,7 +19,7 @@ const CategorySection = ({ itemList, title, category }) => {
   }
 
   return (
-    <section className="w-full my-6">
+    <section className="w-full my-6" >
       <div className="w-full flex items-center justify-between">
         <p className="text-2xl font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-32 before:h-1 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100">
           {title}
@@ -42,7 +42,7 @@ const CategorySection = ({ itemList, title, category }) => {
           </motion.div>
         </div>
       </div>
-      <RowContainer flag={true} data={filteredItems} />
+      <RowContainer flag={true} data={filteredItems} row_containerId = {row_containerId} />
     </section>
   );
 };
