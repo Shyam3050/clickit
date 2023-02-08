@@ -1,12 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-
+import { useSelector } from "react-redux";
 import { RowContainer } from "./";
 
-const CategorySection = ({ itemList, title, category }) => {
+const CategorySection = ({ title, category }) => {
+  const itemList = useSelector(state => state.user.foodItems)
   const filteredItems = itemList.filter((item) => item.category === category);
-   const row_containerId = `${category}+"row_container`;
+   const row_containerId = `${category}row_container`;
   function scrollBtn(direction) {
 
     const slider = document.getElementById(row_containerId);

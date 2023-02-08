@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import NotFound from "../img/NotFound.svg";
 import { addtoCart } from "../store";
+import {  useLocation, useNavigate, Link } from "react-router-dom";
 
-const RowContainer = ({ flag, data,row_containerId }) => {
+const RowContainer = ({ flag, data, row_containerId }) => {
+  // const navigate = useHistory()
   const dispatch = useDispatch();
 
   return (
@@ -17,9 +19,10 @@ const RowContainer = ({ flag, data,row_containerId }) => {
     >
       {data && data.length > 0 ? (
         data.map((item) => (
-          <div
+          <Link
             key={item?.id}
             className="w-275 h-[175px] min-w-[275px] md:w-300 md:min-w-[300px]  bg-cardOverlay rounded-lg py-2 px-4  my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
+            to={"/itemdetail/"+item.id}
           >
             <div className="w-full flex items-center justify-between">
               <motion.div
@@ -37,23 +40,24 @@ const RowContainer = ({ flag, data,row_containerId }) => {
                 className="w-8 h-8 px-10 text-white  rounded-lg  bg-red-500 flex items-center justify-center cursor-pointer hover:shadow-md hover:bg-red-600 -mt-8"
                 onClick={() => dispatch(addtoCart(item))}
               >
-               
-                 add
+                add
               </motion.div>
             </div>
 
-            <div className="w-full flex flex-col items-end justify-end -mt-8 z-30">
+            <div className="w-full flex flex-col items-end justify-end  -mt-8 z-30">
               <p className="text-textColor font-semibold text-base md:text-lg">
                 {item?.title}
               </p>
-              
+              <p className="text-sm">
+                {item.unitValue} {item.unit}
+              </p>
               <div className="flex items-center gap-8">
                 <p className="text-lg text-headingColor font-semibold">
                   <span className="text-sm text-red-500">$</span> {item?.price}
                 </p>
               </div>
             </div>
-          </div>
+          </Link>
         ))
       ) : (
         <div className="w-full flex flex-col items-center justify-center">

@@ -8,7 +8,7 @@ import {
 import { useSelector } from "react-redux";
 
 const MainContainer = () => {
-  const { foodItems, showCart } = useSelector((state) => state.user);
+  const { foodItems } = useSelector((state) => state.user);
   
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center">
@@ -40,7 +40,8 @@ const MainContainer = () => {
         <Loader />
       )}
       <MenuContainer />
-      {showCart && <CartContainer />}
+      
+      
     </div>
   );
 };
