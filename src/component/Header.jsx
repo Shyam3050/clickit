@@ -8,11 +8,12 @@ import { useDispatch } from "react-redux";
 import { login } from "../store/actions/login";
 import { useSelector } from "react-redux";
 import { logout, cartShow } from "../store";
+import Loader from "./Loader";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const userDetails = useSelector((state) => state.user.userDetails);
-  const {cartQty} = useSelector(state => state.cart)
+  const { userDetails, authLoader } = useSelector((state) => state.user);
+  const { cartQty } = useSelector((state) => state.cart);
   const [isMenu, setMenu] = useState(false);
 
   const loginHandler = async () => {
@@ -28,8 +29,8 @@ const Header = () => {
     setMenu(false);
   };
 
-  function showCart (){
-    dispatch(cartShow())
+  function showCart() {
+    dispatch(cartShow());
   }
 
   return (
@@ -66,16 +67,18 @@ const Header = () => {
               <p className="font-semibold text-xs text-white ">{cartQty}</p>
             </div>
           </div>
-          <div
-            className=" relative bg-gray-200 w-10 h-10 min-w-[40px] min-h-[40px] rounded-full drop-shadow-xl "
-            onClick={loginHandler}
-          >
-            <motion.img
-              whileTap={{ scale: 0.6 }}
-              src={userDetails ? userDetails.photoURL : Avatar}
-              alt="user"
-              className="w-full h-full object-cover cursor-pointer rounded-full"
-            />
+          <div className=" relative bg-gray-200 w-10 h-10 min-w-[40px] min-h-[40px] rounded-full drop-shadow-xl ">
+            {authLoader ? (
+              <Loader />
+            ) : (
+              <motion.img
+                whileTap={{ scale: 0.6 }}
+                src={userDetails ? userDetails.photoURL : Avatar}
+                alt="user"
+                className="w-full h-full object-cover cursor-pointer rounded-full"
+                onClick={loginHandler}
+              />
+            )}
             {isMenu && (
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -114,16 +117,18 @@ const Header = () => {
           <img src={logo} className="w-8 object-cover" alt="ptrfoodzone_logo" />
           <p className="text-headingColor text-xl font-bold"> city</p>
         </Link>
-        <div
-          className=" relative bg-gray-200 w-10 h-10 min-w-[40px] min-h-[40px] rounded-full drop-shadow-xl "
-          onClick={loginHandler}
-        >
-          <motion.img
-            whileTap={{ scale: 0.6 }}
-            src={userDetails ? userDetails.photoURL : Avatar}
-            alt="user"
-            className="w-full h-full object-cover cursor-pointer rounded-full"
-          />
+        <div className=" relative bg-gray-200 w-10 h-10 min-w-[40px] min-h-[40px] rounded-full drop-shadow-xl ">
+          {authLoader ? (
+            <Loader />
+          ) : (
+            <motion.img
+              whileTap={{ scale: 0.6 }}
+              src={userDetails ? userDetails.photoURL : Avatar}
+              alt="user"
+              className="w-full h-full object-cover cursor-pointer rounded-full"
+              onClick={loginHandler}
+            />
+          )}
           {isMenu && (
             <motion.div
               initial={{ opacity: 0, scale: 0 }}

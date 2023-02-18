@@ -6,12 +6,16 @@ const initialState = {
   userDetails: fetchUser(),
   foodItems: null,
   showCart: false,
+  authLoader: false,
 };
 
 export const userInfoSlice = createSlice({
   name: "userInfo",
   initialState,
   reducers: {
+    authLoaderState: (state) => {
+      state.authLoader = !state.authLoader;
+    },
     logout: (state) => {
       state.userDetails = "";
       localStorage.clear();

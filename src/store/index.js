@@ -8,5 +8,5 @@ export const store = configureStore({
     cart: cartSlice.reducer,
   },
 });
-export const { logout, cartShow, cartHide } = userInfoSlice.actions;
+export const { logout, cartShow, cartHide,authLoaderState } = userInfoSlice.actions;
 export const { addtoCart, removeFromCart, clearCart } = cartSlice.actions;

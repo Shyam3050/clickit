@@ -7,14 +7,15 @@ import {
   Error,
   CartContainer,
 } from "./component";
+import { DashBoard, ItemDetails } from "./pages/";
 import { AnimatePresence } from "framer-motion";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getFoodItems } from "./store/actions/getFoodItems";
-import ItemDetails from "./pages/ItemDetails";
 import ScrollToTop from "./component/UI/ScrollToTop";
 
 const App = () => {
+  const pathname = window.location.pathname;
   const dispatch = useDispatch();
   const { foodItems, showCart } = useSelector((state) => state.user);
 
@@ -25,8 +26,14 @@ const App = () => {
   return (
     <AnimatePresence>
       <div className="w-screen h-auto flex flex-col bg-primary">
-        <Header />
-        <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full">
+        {pathname === "/dashboard" ? "" : <Header />}
+        <main
+          className={
+            pathname === "/dashboard"
+              ? ""
+              : "mt-14 md:mt-20 px-4 md:px-16 py-4 w-full"
+          }
+        >
           {foodItems ? (
             <ScrollToTop>
               <Routes>
@@ -36,6 +43,7 @@ const App = () => {
                   path="/itemdetail/:productid"
                   element={<ItemDetails />}
                 />
+                <Route path="/dashboard" element={<DashBoard />} />
                 <Route path="*" element={<Error />} />
               </Routes>
             </ScrollToTop>
@@ -46,10 +54,13 @@ const App = () => {
           )}
           {showCart && <CartContainer />}
         </main>
-
-        <div className="text-center p-2 text-white bg-orange-600">
-          <p>copyright @click_it 2023 </p>
-        </div>
+        {pathname === "/dashboard" ? (
+          ""
+        ) : (
+          <div className="text-center p-2 text-white bg-orange-600">
+            <p>copyright @click_it 2023 </p>
+          </div>
+        )}
       </div>
     </AnimatePresence>
   );

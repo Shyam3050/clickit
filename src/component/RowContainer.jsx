@@ -19,11 +19,11 @@ const RowContainer = ({ flag, data, row_containerId }) => {
     >
       {data && data.length > 0 ? (
         data.map((item) => (
-          <div
+          <Link
             key={item?.id}
             className="w-275 h-[175px] min-w-[275px] md:w-300 md:min-w-[300px]  bg-cardOverlay rounded-lg py-2 px-4  my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
-            onClick={() => navigate(`/itemdetail/${item.id}`)
-             }
+            onClick={(e) => console.log(e.target.dataset["item_id"])}
+            to={`/itemdetail/${item.id}`}
           >
             <div className="w-full flex items-center justify-between">
               <motion.div
@@ -40,9 +40,10 @@ const RowContainer = ({ flag, data, row_containerId }) => {
                 whileTap={{ scale: 0.75 }}
                 className="w-8 h-8 px-10 text-white  rounded-lg  bg-red-500 flex items-center justify-center cursor-pointer hover:shadow-md hover:bg-red-600 -mt-8"
                 onClick={(e) => {
-                  e.stopPropagation();
+                  e.preventDefault();
                   dispatch(addtoCart(item));
                 }}
+                data-item_id={item.id}
               >
                 add
               </motion.div>
@@ -61,7 +62,7 @@ const RowContainer = ({ flag, data, row_containerId }) => {
                 </p>
               </div>
             </div>
-          </div>
+          </Link>
         ))
       ) : (
         <div className="w-full flex flex-col items-center justify-center">

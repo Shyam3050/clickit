@@ -1,5 +1,6 @@
 import React from "react";
 import Delivery from "../img/delivery.png";
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { CategorySection, ClickitPromise } from "../component";
 import { useParams } from "react-router-dom";
@@ -13,7 +14,7 @@ const ItemDetails = () => {
   const [item] = foodItems.filter(
     (item) => item.id === productid
   );
-  const { id, imageURL, price, title, unit, unitValue } = item;
+  const { id, imageURL, price, title, unit, unitValue, category } = item;
   return (
     <>
       <section className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full ">
@@ -38,16 +39,17 @@ const ItemDetails = () => {
             {unitValue} {unit}
           </p>
           <p className=" text-lg text-headingColor font-bold">${price}</p>
-          <div
+          <motion.div
+           whileTap={{scale: 0.75}}
             className=" w-full  md:w-8 h-9 px-10 text-white  rounded-lg  bg-red-500 flex items-center justify-center cursor-pointer hover:shadow-md hover:bg-red-600 "
             onClick={() => dispatch(addtoCart(item))}
           >
             add
-          </div>
+          </motion.div>
           <ClickitPromise />
         </div>
       </section>
-      <CategorySection title="Similar Products" category="fruits" />
+      <CategorySection title="Similar Products" category={category} />
       <CategorySection title="You might also like" category="snacks" />
     </>
   );
