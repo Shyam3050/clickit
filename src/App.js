@@ -13,6 +13,7 @@ import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getFoodItems } from "./store/actions/getFoodItems";
 import ScrollToTop from "./component/UI/ScrollToTop";
+import Login from "./pages/Login";
 
 const App = () => {
   const pathname = window.location.pathname;
@@ -44,6 +45,7 @@ const App = () => {
                   element={<ItemDetails />}
                 />
                 <Route path="/dashboard" element={<DashBoard />} />
+                <Route path="/login" element={<Login />} />
                 <Route path="*" element={<Error />} />
               </Routes>
             </ScrollToTop>
