@@ -38,7 +38,7 @@ const ItemDetails = () => {
           <p className="text-lighttextGray font-bold">
             {unitValue} {unit}
           </p>
-          <p className=" text-lg text-headingColor font-bold">${price}</p>
+          <p className=" text-lg text-headingColor font-bold">₹{price}</p>
           <motion.div
            whileTap={{scale: 0.75}}
             className=" w-full  md:w-8 h-9 px-10 text-white  rounded-lg  bg-red-500 flex items-center justify-center cursor-pointer hover:shadow-md hover:bg-red-600 "

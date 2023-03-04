@@ -18,7 +18,7 @@ const CartItem = ({ cartItem }) => {
       <div className="flex flex-col gap-2">
         <p className="text-base text-gray-50">{cartItem.title}</p>
         <p className="text-sm block text-gray-300 font-semibold">
-          $ {cartItem.price}
+        ₹ {cartItem.price}
         </p>
       </div>
 
