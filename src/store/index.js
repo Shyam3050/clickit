@@ -9,4 +9,4 @@ export const store = configureStore({
   },
 });
 export const { logout, cartShow, cartHide,authLoaderState } = userInfoSlice.actions;
-export const { addtoCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { addtoCart, removeFromCart, clearCart, addDeliveryAddressId } = cartSlice.actions;

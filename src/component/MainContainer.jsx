@@ -1,18 +1,18 @@
 import {
   HomeContainer,
   MenuContainer,
-  CartContainer,
   CategorySection,
-  Loader
+  Loader,
 } from "./";
 import { useSelector } from "react-redux";
 
 const MainContainer = () => {
   const { foodItems } = useSelector((state) => state.user);
-  
+
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center">
       <HomeContainer />
+      <MenuContainer />
       {foodItems && foodItems.length > 0 ? (
         <>
           <CategorySection
@@ -23,7 +23,7 @@ const MainContainer = () => {
           <CategorySection
             itemList={foodItems}
             title="today special currys"
-            category="icecreams"
+            category="curry"
           />
           <CategorySection
             itemList={foodItems}
@@ -33,15 +33,12 @@ const MainContainer = () => {
           <CategorySection
             itemList={foodItems}
             title="Summer special"
-            category="curry"
+            category="icecreams"
           />
         </>
       ) : (
         <Loader />
       )}
-      <MenuContainer />
-      
-      
     </div>
   );
 };

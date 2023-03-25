@@ -4,15 +4,18 @@ import { fetchCart } from "../../utils/fetchLocalstoragedata";
 const initialState = {
   cartItems: fetchCart(),
   cartQty: 0,
+  deliveryAddressId: "",
 };
-console.log(initialState, "insi");
 export const cartSlice = createSlice({
   name: "cartItems",
   initialState,
   reducers: {
     clearCart: (state) => {
       state.cartItems = [];
-      state.cartQty = 0
+      state.cartQty = 0;
+    },
+    addDeliveryAddressId: (state, { payload }) => {
+      state.deliveryAddressId = payload;
     },
     addtoCart: (state, { payload }) => {
       const existingItem = state.cartItems.find(

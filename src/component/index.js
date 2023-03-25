@@ -13,9 +13,13 @@ export { default as Error } from "./UI/Error";
 export { default as AdminSidebar } from "./dashboardComponent/AdminSidebar";
 export { default as AdminHeader } from "./dashboardComponent/AdminHeader";
 export { default as MainDashboard } from "./dashboardComponent/MainDashboard";
-export {default as OrderList} from "./dashboardComponent/OrdersList"
-export {default as OrderItem} from  "./dashboardComponent/OrderItem"
-export {default as ItemsList} from "./dashboardComponent/ItemsList"
-export {default as Item} from "./dashboardComponent/Item"
-export {default as OtpVerifier} from "./OtpVerifier"
-export {default as LoginForm} from "./LoginForm"
+export { default as OrderList } from "./dashboardComponent/OrdersList";
+export { default as OrderItem } from "./dashboardComponent/OrderItem";
+export { default as ItemsList } from "./dashboardComponent/ItemsList";
+export { default as Item } from "./dashboardComponent/Item";
+export { default as OtpVerifier } from "./OtpVerifier";
+export { default as LoginForm } from "./LoginForm";
+export { default as AdressForm } from "./adressProcessing/AdressForm";
+export { default as AdressRadio } from "./adressProcessing/AdressRadio";
+export { default as NewAdressForm } from "./adressProcessing/NewAdressForm";
+export {default as OrderSummary} from "./orderProcessing/OrderSummary"

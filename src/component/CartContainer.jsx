@@ -8,9 +8,12 @@ import { cartHide, clearCart } from "../store";
 import { useSelector } from "react-redux";
 import { login } from "../store/actions/login";
 import EmptyCart from "../img/emptyCart.svg"
+import { useNavigate } from "react-router-dom";
+
 
 const CartContainer = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { cartItems } = useSelector((state) => state.cart);
   const { userDetails } = useSelector((state) => state.user);
   function hideCart() {
@@ -83,6 +86,10 @@ const CartContainer = () => {
                 whileTap={{ scale: 0.8 }}
                 type="button"
                 className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+                onClick={()=> {
+                  navigate("/addressform")
+                  dispatch(cartHide())
+                }}
               >
                 Check Out
               </motion.button>

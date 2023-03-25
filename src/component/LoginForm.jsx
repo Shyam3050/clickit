@@ -13,7 +13,7 @@ const LoginForm = () => {
               <div className="my-6">
                 <input
                   class="m-2 border h-10 w-3/5 text-center rounded-lg"
-                  type="text"
+                  type="number"
                   maxlength="10"
                 />
               </div>

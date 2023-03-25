@@ -2,11 +2,10 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   GoogleAuthProvider,
   signInWithPopup,
-  RecaptchaVerifier,
-  signInWithPhoneNumber,
 } from "firebase/auth";
 import { auth } from "../../firebase.config";
 import { authLoaderState } from "..";
+import { newUserDb } from "../../utils/firebaseFunctions";
 
 export const login = createAsyncThunk(
   "userInfo/login",
@@ -18,10 +17,12 @@ export const login = createAsyncThunk(
         user: { refreshToken, providerData },
       } = await signInWithPopup(auth, provider);
       dispatch(authLoaderState());
+      newUserDb(providerData[0].uid)
       return {
         refreshToken,
         user: providerData[0],
       };
+
     } catch (error) {
       console.log(error);
       dispatch(authLoaderState());
