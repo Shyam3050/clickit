@@ -6,8 +6,7 @@ import {
   MainContainer,
   Error,
   CartContainer,
-  AdressForm,
-  OrderSummary
+  
 } from "./component";
 import { DashBoard, ItemDetails } from "./pages/";
 import { AnimatePresence } from "framer-motion";
@@ -49,8 +48,8 @@ const App = () => {
                 <Route path="/dashboard" element={<DashBoard />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="*" element={<Error />} />
-                <Route path="/addressform" element={<AdressForm />} />
-                <Route path="/ordersummary" element={<OrderSummary />} />
+                {/* <Route path="/addressform" element={<AdressForm />} />
+                <Route path="/ordersummary" element={<OrderSummary />} /> */}
               </Routes>
             </ScrollToTop>
           ) : (

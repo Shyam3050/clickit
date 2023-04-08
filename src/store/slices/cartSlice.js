@@ -1,11 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchCart } from "../../utils/fetchLocalstoragedata";
 
-const initialState = {
-  cartItems: fetchCart(),
-  cartQty: 0,
-  deliveryAddressId: "",
-};
+const initialState = fetchCart();
 export const cartSlice = createSlice({
   name: "cartItems",
   initialState,
@@ -14,9 +10,7 @@ export const cartSlice = createSlice({
       state.cartItems = [];
       state.cartQty = 0;
     },
-    addDeliveryAddressId: (state, { payload }) => {
-      state.deliveryAddressId = payload;
-    },
+
     addtoCart: (state, { payload }) => {
       const existingItem = state.cartItems.find(
         (item) => item.id === payload.id
@@ -27,6 +21,7 @@ export const cartSlice = createSlice({
       } else {
         existingItem.qty++;
       }
+      localStorage.setItem("cartItems", JSON.stringify(state));
     },
     removeFromCart: (state, { payload }) => {
       const id = payload.id;
@@ -38,6 +33,7 @@ export const cartSlice = createSlice({
       } else {
         existingItem.qty--;
       }
+      localStorage.setItem("cartItems", JSON.stringify(state));
     },
   },
 });

@@ -19,7 +19,3 @@ export { default as ItemsList } from "./dashboardComponent/ItemsList";
 export { default as Item } from "./dashboardComponent/Item";
 export { default as OtpVerifier } from "./OtpVerifier";
 export { default as LoginForm } from "./LoginForm";
-export { default as AdressForm } from "./adressProcessing/AdressForm";
-export { default as AdressRadio } from "./adressProcessing/AdressRadio";
-export { default as NewAdressForm } from "./adressProcessing/NewAdressForm";
-export {default as OrderSummary} from "./orderProcessing/OrderSummary"

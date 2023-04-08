@@ -25,6 +25,7 @@ const CartContainer = () => {
     0
   );
 
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 200 }}
@@ -70,7 +71,7 @@ const CartContainer = () => {
             </div>
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-400 text-lg">Delivery</p>
-              <p className="text-gray-400 text-lg">₹ 20</p>
+              <p className="text-gray-400 text-lg">{sub_total_price > 500 ? "Free" : "₹ 20"}</p>
             </div>
 
             <div className="w-full border-b border-gray-600 my-2"></div>
@@ -78,7 +79,7 @@ const CartContainer = () => {
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-200 text-xl font-semibold">Total</p>
               <p className="text-gray-200 text-xl font-semibold">
-              ₹ {sub_total_price + 20}
+              ₹ {sub_total_price > 500 ? sub_total_price : sub_total_price + 20}
               </p>
             </div>
             {userDetails ? (
