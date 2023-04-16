@@ -23,7 +23,7 @@ const App = () => {
     (state) => state.user
   );
  
-
+    
   useEffect(() => {
     dispatch(getFoodItems());
   }, [dispatch]);
