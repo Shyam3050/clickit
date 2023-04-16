@@ -3,7 +3,7 @@ import logo from "../img/logo.png";
 import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
 import Avatar from "../img/avatar.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../store/actions/login";
 import { useSelector } from "react-redux";
