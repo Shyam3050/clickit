@@ -3,15 +3,16 @@ import logo from "../img/logo.png";
 import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
 import Avatar from "../img/avatar.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../store/actions/login";
 import { useSelector } from "react-redux";
 import { logout, cartShow } from "../store";
-import Loader from "./Loader";
+import Loader from "./UI/Loader";
 
 const Header = () => {
   const dispatch = useDispatch();
+  // const navigate = useNavigate()
   const { userDetails, authLoader } = useSelector((state) => state.user);
   const { cartQty } = useSelector((state) => state.cart);
   const [isMenu, setMenu] = useState(false);
@@ -46,20 +47,22 @@ const Header = () => {
             initial={{ opacity: 0, x: 200 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 200 }}
+            whileTap={{ scale: 0.95 }}
+           
             className="flex items-center gap-8 "
           >
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Menu
-            </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <Link to ={"/"} className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
               Home
-            </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              About Us
-            </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Service
-            </li>
+            </Link>
+            <Link to={"/orders"} className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer" >
+              Orders
+            </Link>
+            <Link to = {"/"} className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+              Blog
+            </Link>
+            <Link to = {"/"} className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+              contact
+            </Link>
           </motion.ul>
           <div className=" relative flex items-center " onClick={showCart}>
             <MdShoppingBasket className="text-textColor text-2xl cursor-pointer" />
@@ -145,16 +148,16 @@ const Header = () => {
               )}
               <ul className="flex flex-col ">
                 <li className="px-4 py-2 text-base text-textColor hover:bg-gray-200 duration-100 transition-all ease-in-out cursor-pointer">
-                  Menu
-                </li>
-                <li className="px-4 py-2 text-base text-textColor hover:bg-gray-200 duration-100 transition-all ease-in-out cursor-pointer">
                   Home
                 </li>
                 <li className="px-4 py-2 text-base text-textColor hover:bg-gray-200 duration-100 transition-all ease-in-out cursor-pointer">
-                  About Us
+                  Order
                 </li>
                 <li className="px-4 py-2 text-base text-textColor hover:bg-gray-200 duration-100 transition-all ease-in-out cursor-pointer">
-                  Service
+                  Blog
+                </li>
+                <li className="px-4 py-2 text-base text-textColor hover:bg-gray-200 duration-100 transition-all ease-in-out cursor-pointer">
+                  Contact
                 </li>
               </ul>
               <p

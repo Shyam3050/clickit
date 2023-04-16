@@ -1,10 +1,10 @@
 import React from "react";
-import {OrderList , ItemsList} from "../"
+import {OrderList } from "../"
 
 const MainDashboard = () => {
   return <div className="ml-40 mt-16 h-[calc(100vh-4rem)] overflow-y-scroll p-4">
-    {/* <OrderList /> */}
-    <ItemsList /> 
+    <OrderList />
+    {/* <ItemsList />  */}
 
   </div>;
 };

@@ -2,7 +2,7 @@ import React from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { addtoCart, removeFromCart } from "../store";
+import { addtoCart, removeFromCart } from "../../store";
 
 const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
@@ -18,17 +18,17 @@ const CartItem = ({ cartItem }) => {
       <div className="flex flex-col gap-2">
         <p className="text-base text-gray-50">{cartItem.title}</p>
         <p className="text-sm block text-gray-300 font-semibold">
-        ₹ {cartItem.price}
+          ₹ {cartItem.price}
         </p>
       </div>
 
       {/* button section */}
-      <div className="group flex items-center gap-2 ml-auto cursor-pointer">
+      <div className="group flex items-center gap-3 ml-auto cursor-pointer">
         <motion.div
           whileTap={{ scale: 0.75 }}
           onClick={() => dispatch(removeFromCart(cartItem))}
         >
-          <BiMinus className="text-gray-50 " />
+          <BiMinus className="text-gray-50 text-2xl " />
         </motion.div>
 
         <p className="w-5 h-5 rounded-sm bg-cartBg text-gray-50 flex items-center justify-center">
@@ -39,7 +39,7 @@ const CartItem = ({ cartItem }) => {
           whileTap={{ scale: 0.75 }}
           onClick={() => dispatch(addtoCart(cartItem))}
         >
-          <BiPlus className="text-gray-50 " />
+          <BiPlus className="text-gray-50 text-2xl" />
         </motion.div>
       </div>
     </div>

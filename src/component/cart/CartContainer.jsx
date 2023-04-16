@@ -2,18 +2,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { RiRefreshFill } from "react-icons/ri";
-import { CartItem } from "./";
+import { CartItem } from "..";
 import { useDispatch } from "react-redux";
-import { cartHide, clearCart } from "../store";
+import { cartHide, clearCart } from "../../store";
 import { useSelector } from "react-redux";
-import { login } from "../store/actions/login";
-import EmptyCart from "../img/emptyCart.svg"
+import { login } from "../../store/actions/login";
+import EmptyCart from "../../img/emptyCart.svg";
 import { useNavigate } from "react-router-dom";
-
 
 const CartContainer = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { cartItems } = useSelector((state) => state.cart);
   const { userDetails } = useSelector((state) => state.user);
   function hideCart() {
@@ -24,7 +23,6 @@ const CartContainer = () => {
     (acc, item) => acc + item.price * item.qty,
     0
   );
-
 
   return (
     <motion.div
@@ -71,7 +69,9 @@ const CartContainer = () => {
             </div>
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-400 text-lg">Delivery</p>
-              <p className="text-gray-400 text-lg">{sub_total_price > 500 ? "Free" : "₹ 20"}</p>
+              <p className="text-gray-400 text-lg">
+                {sub_total_price > 500 ? "Free" : "₹ 20"}
+              </p>
             </div>
 
             <div className="w-full border-b border-gray-600 my-2"></div>
@@ -79,7 +79,8 @@ const CartContainer = () => {
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-200 text-xl font-semibold">Total</p>
               <p className="text-gray-200 text-xl font-semibold">
-              ₹ {sub_total_price > 500 ? sub_total_price : sub_total_price + 20}
+                ₹{" "}
+                {sub_total_price > 500 ? sub_total_price : sub_total_price + 20}
               </p>
             </div>
             {userDetails ? (
@@ -87,9 +88,9 @@ const CartContainer = () => {
                 whileTap={{ scale: 0.8 }}
                 type="button"
                 className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
-                onClick={()=> {
-                  navigate("/addressform")
-                  dispatch(cartHide())
+                onClick={() => {
+                  navigate("/addressform");
+                  dispatch(cartHide());
                 }}
               >
                 Check Out
@@ -108,8 +109,7 @@ const CartContainer = () => {
         </div>
       ) : (
         <div className="w-full h-full flex flex-col items-center justify-center gap-6">
-          <img src={EmptyCart
-          } className="w-300" alt="" />
+          <img src={EmptyCart} className="w-300" alt="" />
           <p className="text-xl text-textColor font-semibold">
             Add some items to your cart
           </p>

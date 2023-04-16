@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import NotFound from "../img/NotFound.svg";
 import { addtoCart } from "../store";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 
 const RowContainer = ({ flag, data, row_containerId }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
 
   return (

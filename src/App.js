@@ -6,11 +6,11 @@ import {
   MainContainer,
   Error,
   CartContainer,
-  
 } from "./component";
+import { Orders } from "./pages";
 import { DashBoard, ItemDetails } from "./pages/";
 import { AnimatePresence } from "framer-motion";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getFoodItems } from "./store/actions/getFoodItems";
 import ScrollToTop from "./component/UI/ScrollToTop";
@@ -19,7 +19,10 @@ import Login from "./pages/Login";
 const App = () => {
   const pathname = window.location.pathname;
   const dispatch = useDispatch();
-  const { foodItems, showCart } = useSelector((state) => state.user);
+  const { foodItems, showCart, userDetails } = useSelector(
+    (state) => state.user
+  );
+ 
 
   useEffect(() => {
     dispatch(getFoodItems());
@@ -46,10 +49,25 @@ const App = () => {
                   element={<ItemDetails />}
                 />
                 <Route path="/dashboard" element={<DashBoard />} />
-                <Route path="/login" element={<Login />} />
+                <Route
+                  path="/login"
+                  element={
+                    !userDetails ? <Login /> : <Navigate replace to={"/"} />
+                  }
+                />
+                <Route
+                  path="/orders"
+                  element={
+                    userDetails ? (
+                      <Orders />
+                    ) : (
+                      <Navigate replace to={"/login"} />
+                    )
+                  }
+                />
                 <Route path="*" element={<Error />} />
                 {/* <Route path="/addressform" element={<AdressForm />} />
-                <Route path="/ordersummary" element={<OrderSummary />} /> */}
+                <Routes path="/ordersummary" element={<OrderSummary />} /> */}
               </Routes>
             </ScrollToTop>
           ) : (
