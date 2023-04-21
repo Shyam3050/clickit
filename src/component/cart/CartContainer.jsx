@@ -8,17 +8,42 @@ import { cartHide, clearCart } from "../../store";
 import { useSelector } from "react-redux";
 import { login } from "../../store/actions/login";
 import EmptyCart from "../../img/emptyCart.svg";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const CartContainer = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { cartItems } = useSelector((state) => state.cart);
   const { userDetails } = useSelector((state) => state.user);
   function hideCart() {
     dispatch(cartHide());
   }
-
+  const checkOut = () => {
+    fetch(
+      "https://stripebackend.netlify.app/.netlify/functions/api/create-checkout-session",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify([
+          { name: "shyam", unit_amount: "10000", quantity: "2" },
+        ]),
+      }
+    )
+      // if successful request then redirect
+      .then((res) => {
+        console.log(res);
+        if (res.ok) return res.json();
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then((res) => {
+        window.location = res.url;
+      })
+      .catch((e) => {
+        console.log(e.error);
+      });
+  };
   const sub_total_price = cartItems.reduce(
     (acc, item) => acc + item.price * item.qty,
     0
@@ -89,8 +114,9 @@ const CartContainer = () => {
                 type="button"
                 className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
                 onClick={() => {
-                  navigate("/addressform");
+                 
                   dispatch(cartHide());
+                  checkOut();
                 }}
               >
                 Check Out
