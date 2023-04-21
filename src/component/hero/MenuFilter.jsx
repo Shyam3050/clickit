@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { categories } from "../utils/data";
+import { categories } from "../../utils/data";
 import { useSelector } from "react-redux";
-import RowContainer from "./RowContainer";
+import RowContainer from "../row_container_swiper/RowContainer";
 import { IoFastFood } from "react-icons/io5";
-const MenuContainer = () => {
+const MenuFilter = () => {
   const [filter, setFilter] = useState("chicken");
   const foodItems = useSelector((state) => state.user.foodItems);
 
@@ -70,4 +70,4 @@ const MenuContainer = () => {
   );
 };
 
-export default MenuContainer;
+export default MenuFilter;

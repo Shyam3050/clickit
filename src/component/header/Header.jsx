@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import logo from "../img/logo.png";
+import logo from "../../img/logo.png";
 import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
-import Avatar from "../img/avatar.png";
-import { Link} from "react-router-dom";
+import Avatar from "../../img/avatar.png";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login } from "../store/actions/login";
+import { login } from "../../store/actions/login";
 import { useSelector } from "react-redux";
-import { logout, cartShow } from "../store";
-import Loader from "./UI/Loader";
+import { logout, cartShow } from "../../store";
+import Loader from "../UI/Loader";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -48,19 +48,30 @@ const Header = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 200 }}
             whileTap={{ scale: 0.95 }}
-           
             className="flex items-center gap-8 "
           >
-            <Link to ={"/"} className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <Link
+              to={"/"}
+              className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer"
+            >
               Home
             </Link>
-            <Link to={"/orders"} className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer" >
+            <Link
+              to={"/orders"}
+              className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer"
+            >
               Orders
             </Link>
-            <Link to = {"/"} className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <Link
+              to={"/"}
+              className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer"
+            >
               Blog
             </Link>
-            <Link to = {"/"} className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <Link
+              to={"/"}
+              className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer"
+            >
               contact
             </Link>
           </motion.ul>

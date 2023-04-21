@@ -1,9 +1,4 @@
-import {
-  HomeContainer,
-  MenuContainer,
-  CategorySection,
-  Loader,
-} from "./";
+import { HomeContainer, MenuFilter, CategorySection, Loader } from "..";
 import { useSelector } from "react-redux";
 
 const MainContainer = () => {
@@ -12,7 +7,7 @@ const MainContainer = () => {
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center">
       <HomeContainer />
-      <MenuContainer />
+      <MenuFilter />
       {foodItems && foodItems.length > 0 ? (
         <>
           <CategorySection

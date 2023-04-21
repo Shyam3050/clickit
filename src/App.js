@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import {
-  CreateContainer,
+  Footer,
   Header,
   Loader,
   MainContainer,
@@ -8,7 +8,7 @@ import {
   CartContainer,
 } from "./component";
 import { Orders } from "./pages";
-import { DashBoard, ItemDetails } from "./pages/";
+import { ItemDetails } from "./pages/";
 import { AnimatePresence } from "framer-motion";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,13 +17,11 @@ import ScrollToTop from "./component/UI/ScrollToTop";
 import Login from "./pages/Login";
 
 const App = () => {
-  const pathname = window.location.pathname;
   const dispatch = useDispatch();
   const { foodItems, showCart, userDetails } = useSelector(
     (state) => state.user
   );
- 
-    
+
   useEffect(() => {
     dispatch(getFoodItems());
   }, [dispatch]);
@@ -31,24 +29,17 @@ const App = () => {
   return (
     <AnimatePresence>
       <div className="w-screen h-auto flex flex-col bg-primary">
-        {pathname === "/dashboard" ? "" : <Header />}
-        <main
-          className={
-            pathname === "/dashboard"
-              ? ""
-              : "mt-14 md:mt-20 px-4 md:px-16 py-4 w-full"
-          }
-        >
+        <Header />
+
+        <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full">
           {foodItems ? (
             <ScrollToTop>
               <Routes>
                 <Route path="/" element={<MainContainer />} />
-                <Route path="/createitem" element={<CreateContainer />} />
                 <Route
                   path="/itemdetail/:productid"
                   element={<ItemDetails />}
                 />
-                <Route path="/dashboard" element={<DashBoard />} />
                 <Route
                   path="/login"
                   element={
@@ -66,8 +57,6 @@ const App = () => {
                   }
                 />
                 <Route path="*" element={<Error />} />
-                {/* <Route path="/addressform" element={<AdressForm />} />
-                <Routes path="/ordersummary" element={<OrderSummary />} /> */}
               </Routes>
             </ScrollToTop>
           ) : (
@@ -77,13 +66,7 @@ const App = () => {
           )}
           {showCart && <CartContainer />}
         </main>
-        {pathname === "/dashboard" ? (
-          ""
-        ) : (
-          <div className="text-center p-2 text-white bg-orange-600">
-            <p>copyright @click_it 2023 </p>
-          </div>
-        )}
+        <Footer />
       </div>
     </AnimatePresence>
   );
