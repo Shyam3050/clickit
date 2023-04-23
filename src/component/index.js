@@ -12,3 +12,4 @@ export { default as Error } from "./UI/Error";
 export { default as LoginForm } from "./LoginSection/LoginForm";
 export { default as OrderedItem } from "./OrderDetails/OrderedItem";
 export { default as Footer } from "./UI/Footer";
+export { default as RadioInput } from "./UI/RadioInput";

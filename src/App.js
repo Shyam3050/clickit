@@ -7,14 +7,12 @@ import {
   Error,
   CartContainer,
 } from "./component";
-import { Orders } from "./pages";
-import { ItemDetails } from "./pages/";
+import { Orders, ItemDetails, Login, AdressForm } from "./pages";
 import { AnimatePresence } from "framer-motion";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getFoodItems } from "./store/actions/getFoodItems";
 import ScrollToTop from "./component/UI/ScrollToTop";
-import Login from "./pages/Login";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -51,6 +49,16 @@ const App = () => {
                   element={
                     userDetails ? (
                       <Orders />
+                    ) : (
+                      <Navigate replace to={"/login"} />
+                    )
+                  }
+                />
+                <Route
+                  path="/adressform"
+                  element={
+                    userDetails ? (
+                      <AdressForm />
                     ) : (
                       <Navigate replace to={"/login"} />
                     )

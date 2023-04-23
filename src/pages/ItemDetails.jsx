@@ -6,6 +6,7 @@ import { CategorySection, ClickitPromise } from "../component";
 import { useParams } from "react-router-dom";
 import { addtoCart } from "../store";
 
+
 const ItemDetails = () => {
   const dispatch = useDispatch();
   const foodItems = useSelector((state) => state.user.foodItems);
