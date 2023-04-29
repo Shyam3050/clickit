@@ -1,16 +1,16 @@
-
-const RadioInput = () => {
+const RadioInput = ({ id, value, onchangeselect }) => {
   return (
-    <div className="border border-orange-500 p-2 my-4">
+    <div className="border border-orange-500 p-2 my-4 flex">
       <input
         type="radio"
         name="size"
-        value="XS"
-        id="23hi786"
+        value={value}
+        id={id}
         className="mr-2"
+        onChange={onchangeselect}
       />
-      <label for="23hi786" className="cursor-pointer p-2">
-        shyam sundar 9668221451 md street patrapur ganjam odisha pin: 761004
+      <label htmlFor={id} className="cursor-pointer p-2  w-full">
+        {value}
       </label>
     </div>
   );

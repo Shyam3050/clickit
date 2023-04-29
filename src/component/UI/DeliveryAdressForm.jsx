@@ -30,7 +30,7 @@ const DeliveryAdressForm = ({ onCancel }) => {
     <div className="">
       <form onSubmit={deliveyAdressFormHandler}>
         <div>
-          <label htmlFor="full-name" class="block mb-2 text-base font-medium">
+          <label htmlFor="full-name" className="block mb-2 text-base font-medium">
             Full Name
           </label>
           <input
@@ -56,7 +56,7 @@ const DeliveryAdressForm = ({ onCancel }) => {
           />
         </div>
         <div>
-          <label for="adress" className="block mb-2 text-base font-medium ">
+          <label htmlFor="adress" className="block mb-2 text-base font-medium ">
             Full Adress
           </label>
           <textarea
@@ -69,7 +69,7 @@ const DeliveryAdressForm = ({ onCancel }) => {
           ></textarea>
         </div>
         <div>
-          <label htmlFor="pin-code" class="block mb-2 text-base font-medium">
+          <label htmlFor="pin-code" className="block mb-2 text-base font-medium">
             Pin Code
           </label>
           <input

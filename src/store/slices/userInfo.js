@@ -7,6 +7,7 @@ const initialState = {
   foodItems: null,
   showCart: false,
   authLoader: false,
+  deliverhereLoader: false
 };
 
 export const userInfoSlice = createSlice({
@@ -15,6 +16,9 @@ export const userInfoSlice = createSlice({
   reducers: {
     authLoaderState: (state) => {
       state.authLoader = !state.authLoader;
+    },
+    deliverhereLoaderState: (state) =>{
+      state.deliverhereLoader = !state.authLoader;
     },
     logout: (state) => {
       state.userDetails = "";

@@ -1,5 +1,6 @@
+
 export const stripeCheckOut = () => {
-  console.log("stripestart")
+
     fetch(
       "https://stripebackend.netlify.app/.netlify/functions/api/create-checkout-session",
       {
