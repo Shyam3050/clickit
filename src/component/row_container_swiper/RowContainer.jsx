@@ -4,6 +4,8 @@ import NotFound from "../../img/NotFound.svg";
 import { addtoCart } from "../../store";
 import { Link } from "react-router-dom";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 const RowContainer = ({ flag, data, row_containerId }) => {
   // const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -30,10 +32,11 @@ const RowContainer = ({ flag, data, row_containerId }) => {
                 className="w-40 h-40 -mt-8 drop-shadow-2xl"
                 whileHover={{ scale: 1.2 }}
               >
-                <img
+                <LazyLoadImage
                   src={item?.imageURL}
                   alt=""
                   className="w-full h-full object-contain"
+                  
                 />
               </motion.div>
               <motion.div
