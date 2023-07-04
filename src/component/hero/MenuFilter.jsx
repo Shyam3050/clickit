@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { categories } from "../../utils/data";
 import { useSelector } from "react-redux";
 import RowContainer from "../row_container_swiper/RowContainer";
-import { IoFastFood } from "react-icons/io5";
+// import { IoFastFood } from "react-icons/io5";
+import idly from "../../img/idly.png"
 const MenuFilter = () => {
   const [filter, setFilter] = useState("chicken");
   const foodItems = useSelector((state) => state.user.foodItems);
@@ -28,25 +29,26 @@ const MenuFilter = () => {
                     filter === category.urlParamName
                       ? "bg-cartNumBg"
                       : "bg-card"
-                  } w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg `}
+                  } w-40 min-w-[94px] h-44 cursor-pointer rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-cartNumBg `}
                 >
                   <div
-                    className={`w-10 h-10 rounded-full shadow-lg ${
+                    className={`w-28 h-28 rounded-full shadow-lg ${
                       filter === category.urlParamName
                         ? "bg-white"
                         : "bg-cartNumBg"
-                    } group-hover:bg-white flex items-center justify-center`}
+                    } group-hover:bg-white flex items-center justify-center overflow-hidden`}
                   >
-                    <IoFastFood
+                    {/* <IoFastFood
                       className={`${
                         filter === category.urlParamName
                           ? "text-textColor"
                           : "text-white"
-                      } group-hover:text-textColor text-lg`}
-                    />
+                      } group-hover:text-textColor  text-lg`}
+                    /> */}
+                    <img src={idly} alt="" srcset="" className="" />
                   </div>
                   <p
-                    className={`text-sm ${
+                    className={`text-lg font-bold ${
                       filter === category.urlParamName
                         ? "text-white"
                         : "text-textColor"
