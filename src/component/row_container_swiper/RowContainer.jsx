@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import NotFound from "../../img/NotFound.svg";
 import { addtoCart } from "../../store";
 import { Link } from "react-router-dom";
-import pansweet from "../../img/vb.jpg";
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
@@ -35,7 +34,7 @@ const RowContainer = ({ flag, data, row_containerId }) => {
                 whileHover={{ scale: 0.9 }}
               >
                 <LazyLoadImage
-                  src={pansweet}
+                  src={item.imageURL}
                   alt=""
                   className="w-full h-full object-cover"
                 />

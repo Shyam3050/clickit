@@ -38,13 +38,6 @@ const MenuFilter = () => {
                         : "bg-cartNumBg"
                     } group-hover:bg-white flex items-center justify-center overflow-hidden`}
                   >
-                    {/* <IoFastFood
-                      className={`${
-                        filter === category.urlParamName
-                          ? "text-textColor"
-                          : "text-white"
-                      } group-hover:text-textColor  text-lg`}
-                    /> */}
                     <img src={idly} alt="" srcset="" className="" />
                   </div>
                   <p
