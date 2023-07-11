@@ -1,36 +1,37 @@
-import I1 from "../img/i1.png";
-import F1 from "../img/f1.png";
-import C3 from "../img/c3.png";
-import Fi1 from "../img/fi1.png";
+import cake from "../img/CAKE.avif";
+import chaat from "../img/chaat.avif";
+import chicken from "../img/CHICKEN.webp";
+import panner from "../img/PANNER.avif";
+import rice from "../img/rice.avif";
 
 export const heroData = [
   {
     id: 1,
-    name: "Icecream",
-    decp: "Chocolate & vanilla",
+    name: "cake",
+    decp: "All variety Cakes",
     price: "5.25",
-    imageSrc: I1,
+    imageSrc: cake,
   },
   {
     id: 2,
-    name: "Strawberries",
-    decp: "Fresh Strawberries",
+    name: "chicen",
+    decp: "chicken thai",
     price: "10.25",
-    imageSrc: F1,
+    imageSrc: chicken,
   },
   {
     id: 3,
-    name: "Chicken Kebab",
-    decp: "Mixed Kebab Plate",
+    name: "paneer",
+    decp: "paneer malai",
     price: "8.25",
-    imageSrc: C3,
+    imageSrc: panner,
   },
   {
     id: 4,
-    name: "Fish Kebab",
-    decp: "Mixed Fish Kebab",
+    name: "chaat",
+    decp: "gupchup chaat",
     price: "5.25",
-    imageSrc: Fi1,
+    imageSrc: chaat,
   },
 ];
 
@@ -39,40 +40,45 @@ export const categories = [
     id: 1,
     name: "Chicken",
     urlParamName: "chicken",
+    imgSrc: chicken,
   },
   {
     id: 2,
     name: "Curry",
     urlParamName: "curry",
+    imgSrc: panner,
   },
   {
     id: 3,
     name: "Rice",
     urlParamName: "rice",
+    imgSrc: rice,
   },
-  {
-    id: 4,
-    name: "Fish",
-    urlParamName: "fish",
-  },
-  {
-    id: 5,
-    name: "Fruits",
-    urlParamName: "fruits",
-  },
-  {
-    id: 6,
-    name: "Icecreams",
-    urlParamName: "icecreams",
-  },
+  // {
+  //   id: 4,
+  //   name: "Fish",
+  //   urlParamName: "fish",
+  // },
+  // {
+  //   id: 5,
+  //   name: "Fruits",
+  //   urlParamName: "fruits",
+  // },
+  // {
+  //   id: 6,
+  //   name: "Icecreams",
+  //   urlParamName: "icecreams",
+  // },
 
+  // {
+  //   id: 7,
+  //   name: "Soft Drinks",
+  //   urlParamName: "drinks",
+  // },
   {
-    id: 7,
-    name: "Soft Drinks",
-    urlParamName: "drinks",
-  },{
     id: 8,
     name: "snacks",
-    urlParamName: "snacks"
-  }
+    urlParamName: "snacks",
+    imgSrc: cake,
+  },
 ];

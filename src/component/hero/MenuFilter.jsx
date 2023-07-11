@@ -4,7 +4,6 @@ import { categories } from "../../utils/data";
 import { useSelector } from "react-redux";
 import RowContainer from "../row_container_swiper/RowContainer";
 // import { IoFastFood } from "react-icons/io5";
-import idly from "../../img/idly.png"
 const MenuFilter = () => {
   const [filter, setFilter] = useState("chicken");
   const foodItems = useSelector((state) => state.user.foodItems);
@@ -13,7 +12,7 @@ const MenuFilter = () => {
     <section className="w-full my-6" id="menu">
       <div className="w-full flex flex-col items-center justify-center">
         <p className="text-2xl font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-16 before:h-1 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100 mr-auto">
-          Our Hot Dishes
+          Inspiration for your first order
         </p>
 
         <div className="w-full flex items-center justify-start lg:justify-center gap-8 py-6 overflow-x-scroll scrollbar-hide">
@@ -38,7 +37,7 @@ const MenuFilter = () => {
                         : "bg-cartNumBg"
                     } group-hover:bg-white flex items-center justify-center overflow-hidden`}
                   >
-                    <img src={idly} alt="" srcset="" className="" />
+                    <img src={category.imgSrc} alt="" srcset="" className="" />
                   </div>
                   <p
                     className={`text-lg font-bold ${

@@ -1,5 +1,5 @@
 import React from "react";
-import Monster from "../../img/d3.png";
+import Monster from "../../img/PANNER.avif";
 
 const OrderedItem = () => {
   return (

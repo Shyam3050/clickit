@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { cartHide, clearCart } from "../../store";
 import { useSelector } from "react-redux";
 import { login } from "../../store/actions/login";
-import EmptyCart from "../../img/emptyCart.svg";
+import EmptyCart from "../../img/NotFound.svg";
 import { useNavigate } from "react-router-dom";
 
 const CartContainer = () => {
